@@ -6,7 +6,7 @@ resource "aws_vpc" "main" {
     var.common_tags,
     var.vpc_tags,
     {
-      Name = locals.resource_name
+      Name = local.resource_name
     }
   )
 }
