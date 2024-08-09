@@ -10,7 +10,7 @@ resource "aws_vpc" "main" {
     }
   )
 }
-
+#create igw
 resource "aws_internet_gateway" "gw" {
   vpc_id = aws_vpc.main.id
 
@@ -22,4 +22,18 @@ resource "aws_internet_gateway" "gw" {
       }
 
     )
+  }
+#create subnets
+resource "aws_subnet" "main" {
+  count = length(var.public_subnet_cidrs)
+  vpc_id     = aws_vpc.main.id
+  cidr_block = var.public_subnet_cidrs[count.index]
+
+  tags = merge(
+    var.common_tags,
+    var.public_subnet_cidrs_tags,
+    {
+      Name = local.resource_name
+    }
+  )
   }

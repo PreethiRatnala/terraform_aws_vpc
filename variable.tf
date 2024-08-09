@@ -31,3 +31,16 @@ variable "igw_tags" {
   default = {}
   
 }
+#creating 2 pulic subnets each in two zones(us-east-1a and us_east-1b)
+variable "public_subnet_cidrs" {
+  type = list
+  validation {
+    condition = length(var.public_subnet_cidrs) == 2
+    error_message = "Please provide 2 valid public subnet cidrs"
+  }
+}
+
+variable "public_subnet_cidrs_tags" {
+  type = map
+  default = {}
+}
