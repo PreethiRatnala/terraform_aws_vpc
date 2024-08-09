@@ -38,9 +38,9 @@ variable "public_subnet_cidrs" {
     condition = length(var.public_subnet_cidrs) == 2
     error_message = "Please provide 2 valid public subnet cidrs"
   }
-}
+} 
 
-variable "public_subnet_cidrs_tags" {
+ variable "public_subnet_cidrs_tags" {
   type = map
   default = {}
 }

@@ -1,3 +1,3 @@
-output "azs" {
-  value = data.aws_availability_zones.zones
-}
+/* output "azs" {
+  value = data.aws_availability_zones.zones.names
+} */
