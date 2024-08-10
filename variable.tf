@@ -111,3 +111,8 @@ variable "vpc_peering_tags" {
   type = map
   default = {}
 }
+
+variable "db_subnet_group_tags" {
+    type = map
+  default = {}
+}
